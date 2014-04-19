@@ -11,16 +11,12 @@ servers = (
   }
 );
 
-chatnets = {
-  FreeNode = {
-    type = "IRC";
-    realname = "James Sully";
-    autosendcmd = "/msg NickServ identify quasar8524;wait -FreeNode 2000";
-  };
-};
+chatnets = { FreeNode = { type = "IRC"; }; };
 
-channels = ( 
-  { name = "#vim"; chatnet = "FreeNode"; autojoin = "yes"; }
+channels = (
+  { name = "#vim"; chatnet = "FreeNode"; autojoin = "yes"; },
+  { name = "#irssi"; chatnet = "FreeNode"; autojoin = "yes"; },
+  { name = "##unixporn"; chatnet = "FreeNode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -71,6 +67,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  he = "help";
 };
 
 statusbar = {
@@ -113,7 +110,7 @@ statusbar = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
     window = {
-      disabled = "no";
+      disabled = "yes";
 
       # window, root
       type = "window";
@@ -202,9 +199,17 @@ settings = {
     awl_display_key = "%K$H $C $S";
     awl_display_key_active = "$H %Y$C $S";
     awl_separator = "\\ ";
+    awl_mouse = "yes";
   };
   "fe-common/core" = {
     show_names_on_join = "no";
     use_status_window = "no";
+    autolog = "yes";
+    timestamps = "no";
+    bell_beeps = "yes";
   };
 };
+keyboard = ( 
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm"; }
+);
+logs = { };
